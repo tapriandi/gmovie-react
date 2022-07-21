@@ -1,0 +1,71 @@
+@import '../../styles/colors.scss';
+
+.search {
+  position: relative;
+  text-align: center;
+
+  input {
+    padding: 10px 15px;
+    font-size: 15px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 2px;
+    margin-bottom: 5%;
+    border: 1px solid white;
+
+    &:focus, &:hover {
+      border-color: $purple;
+    }
+  }
+
+  .suggestion {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .card {
+      position: relative;
+      display: flex;
+      width: 100%;
+      margin: 5px 0;
+      padding: 5px;
+      max-width: 200px;
+      align-items: center;
+      transition: 0.4s ease-in;
+      background: rgba(255, 255, 255, 0.7);
+
+      &:hover {
+      background: rgba(255, 255, 255, 0.9);
+      }
+
+      img {
+        width: 20%;
+      }
+
+      .text {
+        width: 80%;
+        text-align: left;
+        padding-left: 8px;
+        
+        p {
+          color: $purple;
+          line-height: 1;
+          font-size: 14px;
+          font-weight: bold;
+          padding-bottom: 5px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .search {
+    input {
+      font-size: 13px;
+      max-width: 200px;
+      margin-bottom: 20%;
+    }
+  }
+}

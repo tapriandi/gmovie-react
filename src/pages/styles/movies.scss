@@ -1,0 +1,38 @@
+@import "../../styles/colors.scss";
+@import "../../styles/mixin.scss";
+
+.movies {
+  background: $black;
+  min-height: 100vh;
+
+  .hero {
+    position: relative;
+    height: 300px;
+    width: 100%;
+
+    img {
+      z-index: 1;
+      @include img-full;
+    }
+
+    .gradient {
+      @include gradient;
+    }
+
+    .content {
+      position: absolute;
+      width: 100%;
+      top: 65%;
+      left: 50%;
+      z-index: 2;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .wrapper {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 60px 10%;
+  }
+}

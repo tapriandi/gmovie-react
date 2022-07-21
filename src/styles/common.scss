@@ -1,0 +1,43 @@
+@import "./colors.scss";
+@import "./mixin.scss";
+
+.error {
+  position: relative;
+  color: $white;
+  min-height: 90vh;
+  background: $black;
+
+  .content {
+    text-align: center;
+    @include center;
+
+    h1 {
+      padding-bottom: 15px;
+    }
+  }
+}
+
+.gbutton {
+  display: flex;
+  color: $white;
+  margin: 0 auto;
+  width: fit-content;
+  height: 45px;
+  padding: 10px 25px;
+  line-height: 1;
+  font-size: 15px;
+  background: $purple;
+  align-items: center;
+  border-radius: 4px;
+  transition: 0.5s;
+  border: 1px solid $purple;
+
+  svg {
+    margin-left: 8px;
+  }
+
+  &:hover {
+    color: $purple;
+    background: $white;
+  }
+}

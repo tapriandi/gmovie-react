@@ -1,0 +1,56 @@
+@import "../../styles/colors.scss";
+@import "../../styles/mixin.scss";
+
+.movie {
+  background: $black;
+  padding: 120px 10% 100px;
+  color: $white;
+  min-height: 90vh;
+
+  .wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    img {
+      width: 30%;
+    }
+
+    .content {
+      width: 65%;
+      h2 {
+        padding-bottom: 20px;
+      }
+      p {
+        line-height: 1.3;
+      }
+
+      .wrap {
+        padding-top: 20px;
+      }
+    }
+  }
+
+  .gbutton {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 780px) {
+  .movie {
+    padding: 100px 6% 60px;
+    .wrapper {
+      flex-direction: column;
+      img, .content {
+        width: 100%;
+      }
+  
+      .content {
+        padding-top: 30px;
+        .wrap td {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+@import "../../styles/colors.scss";
+@import "../../styles/mixin.scss";
+
+.card-movie {
+  overflow: hidden;
+  cursor: pointer;
+  width: 30%;
+  margin: 0 1% 25px;
+  border-radius: 3px;
+  transition: 0.3s ease-in;
+
+  &:hover {
+    img {
+      transform: scale(1.02);
+    }
+  }
+
+  .image {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 140%;
+
+    img {
+      position: absolute;
+      display: block;
+      margin: auto;
+      width: 0px;
+      height: 0px;
+      padding: 0px;
+      min-width: 100%;
+      min-height: 100%;
+      transition: 0.3s ease-in;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+
+  .content {
+    padding: 10px 0;
+
+    p {
+      color: $white;
+      font-size: 16px;
+    }
+  }
+}
+
+.big-poster {
+  position: fixed;
+  z-index: 6;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.2);
+
+  .wrap {
+    @include center;
+    height: 90%;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .close {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      right: 0;
+      color: $purple;
+      font-size: 40px;
+      transition: 0.4s;
+      &:hover {
+        color: $white;
+      }
+    }
+
+    .more {
+      position: absolute;
+      display: flex;
+      color: $white;
+      bottom: 1px;
+      right: 1px;
+      line-height: 1;
+      padding: 5px 10px;
+      align-items: center;
+      background: $purple;
+      transition: 0.4s;
+      svg {
+        margin-left: 5px;
+      }
+
+      &:hover {
+        color: $purple;
+        background: $white;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .big-poster {
+    .wrap {
+      height: unset;
+      width: 70%;
+      .close {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  .card-movie {
+    width: 46%;
+    margin: 0 2% 25px;
+  }
+}

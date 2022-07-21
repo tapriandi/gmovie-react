@@ -1,0 +1,14 @@
+@import "../../styles/colors";
+
+footer {
+  background: $black;
+  padding: 15px 0;
+  text-align: center;
+  border-top: 8px solid $gray;
+
+  p, a {
+    font-size: 14px;
+    padding: 4px 0;
+    color: $white;
+  }
+}

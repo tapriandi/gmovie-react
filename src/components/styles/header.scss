@@ -1,0 +1,44 @@
+@import '../../styles/colors';
+
+.header {
+  position: absolute;
+  display: flex;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  padding: 0 6%;
+  align-items: center;
+  justify-content: space-between;
+
+  a {
+    color: $white;
+  }
+
+  .main {
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  .menu {
+    font-size: 20px;
+    transition: 0.5s;
+    border-bottom: 2px solid transparent;
+    &:hover {
+      color: $purple;
+      border-color: $purple
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    .main {
+      font-size: 30px;
+    }
+    .menu {
+      font-size: 18px;
+    }
+  }
+}

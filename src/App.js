@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route index element={<Homepage />} />
 
-        <Route path="movies">
+        <Route path="/movies">
           <Route index element={<Movies />} />
           <Route path=":slug" element={<Movie />} />
         </Route>

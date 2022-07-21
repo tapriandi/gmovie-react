@@ -29,5 +29,6 @@ code {
   padding: 50px;
 }
 .loading p {
+  color: white;
   text-align: center;
 }

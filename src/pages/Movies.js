@@ -12,8 +12,11 @@ export default function Movies() {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
   const dispatch = useDispatch();
-  const { filter, movies, loading } = useSelector(movieSelector);
-
+  const store = useSelector(movieSelector);
+  const filter = store?.filter;
+  const movies = store?.movies;
+  const loading = store?.loading;
+  
   const observer = useRef();
   const lastMovieRef = useCallback(
     (node) => {
@@ -37,8 +40,6 @@ export default function Movies() {
     dispatch(getMovies(filter, page));
   }, [dispatch, filter, page]);
 
-  console.log(movies);
-
   return (
     <div className="movies">
       <div className="hero">
@@ -56,9 +57,7 @@ export default function Movies() {
       <div className="wrapper">
         {movies?.map((movie, idx) => {
           if (movies.length === idx + 1) {
-            return (
-              <CardMovie key={idx} movie={movie} last={lastMovieRef} />
-            );
+            return <CardMovie key={idx} movie={movie} last={lastMovieRef} />;
           } else {
             return <CardMovie key={idx} movie={movie} />;
           }

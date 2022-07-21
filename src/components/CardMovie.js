@@ -4,7 +4,6 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import "./styles/cardMovie.scss";
 
 export default function CardMovie({ movie, last }) {
-  const { imdbID, Title, Poster } = movie;
   const [show, setShow] = useState(false);
   const [selected, setSelected] = useState({});
 
@@ -17,10 +16,10 @@ export default function CardMovie({ movie, last }) {
     <>
       <div className="card-movie" ref={last}>
         <div className="image" onClick={() => handlePoster(movie)}>
-          <img src={Poster} alt={Title} />
+          <img src={movie?.Poster} alt={movie?.Title} />
         </div>
-        <a href={`/movies/${imdbID}`} className="content">
-          <p>{Title}</p>
+        <a href={`/movies/${movie?.imdbID}`} className="content">
+          <p>{movie?.Title}</p>
         </a>
       </div>
 

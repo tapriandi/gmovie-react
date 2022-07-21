@@ -9,7 +9,9 @@ import "./styles/movie.scss";
 export default function Movie() {
   const { slug } = useParams();
   const dispatch = useDispatch();
-  const { movie, loading } = useSelector(movieSelector);
+  const store = useSelector(movieSelector);
+  const loading = store?.loading;
+  const movie = store?.movie;
 
   useEffect(() => {
     dispatch(getMovie(slug));
@@ -17,9 +19,8 @@ export default function Movie() {
 
   return (
     <div className="movie">
-      {loading ? (
-        <Loading />
-      ) : (
+      {loading && <Loading />}
+      {movie && (
         <div className="wrapper">
           <img src={movie.Poster} alt="" />
           <div className="content">

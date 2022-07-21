@@ -6,7 +6,7 @@ const initialState = {
   movies: [],
   movie: {},
   search: [],
-  keySearch: "",
+  keysearch: "",
   filter: "",
 };
 
@@ -34,7 +34,7 @@ const movieSlice = createSlice({
       state.loading = false;
     },
     setKeySearch: (state, action) => {
-      state.keySearch = action.payload;
+      state.keysearch = action.payload;
       state.loading = false;
     },
     setFilter: (state, action) => {
@@ -69,7 +69,6 @@ export const getLoading = () => (dispatch) => {
 export const getMovies = (filter, page = 1) => async (dispatch) => {
   dispatch(getLoading());
   const data = await getMovieByKey(filter, page);
-  console.log(data?.length);
   if (page > 1) {
     dispatch(setMoviesMore(data));
   } else {

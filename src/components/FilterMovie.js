@@ -7,7 +7,7 @@ import "./styles/filterMovie.scss";
 
 export default function FilterMovie() {
   const dispatch = useDispatch();
-  const { movies, filter, loading } = useSelector(movieSelector);
+  const filter = useSelector(movieSelector);
 
   const handleFilter = (selected) => {
     dispatch(getFilter(selected));
@@ -15,12 +15,12 @@ export default function FilterMovie() {
 
   useEffect(() => {
     dispatch(getFilter(filterData[0]));
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="filter-menu">
       {filterData?.map((e, idx) => (
-        <div className={`filter-button ${e === filter && 'active'}`} key={idx} onClick={() => handleFilter(e)}>
+        <div className={`filter-button ${e === filter?.filter && 'active'}`} key={idx} onClick={() => handleFilter(e)}>
           {e}
         </div>
       ))}

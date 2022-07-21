@@ -42,7 +42,6 @@ export default function Search({ data }) {
               <a
                 key={idx}
                 className="card"
-                // onClick={() => handleOnSuggest(e.Title)}
                 href={`/movies/${e.imdbID}`}
               >
                 <img src={e.Poster} alt="" />

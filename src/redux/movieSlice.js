@@ -22,12 +22,15 @@ const movieSlice = createSlice({
       state.loading = false;
     },
     setMoviesMore: (state, action) => {
-      // state.movies = [...state.movies, action.payload];
       action.payload.map(e => state.movies.push(e));
       state.loading = false;
     },
     setMovie: (state, action) => {
       state.movie = action.payload;
+      state.loading = false;
+    },
+    setSearch: (state, action) => {
+      state.search = action.payload;
       state.loading = false;
     },
     setKeySearch: (state, action) => {
@@ -66,6 +69,7 @@ export const getLoading = () => (dispatch) => {
 export const getMovies = (filter, page = 1) => async (dispatch) => {
   dispatch(getLoading());
   const data = await getMovieByKey(filter, page);
+  console.log(data?.length);
   if (page > 1) {
     dispatch(setMoviesMore(data));
   } else {

@@ -7,6 +7,7 @@
 
 ### Feature
 - Filter
+- Infinite Scroll
 - Popup Poster preview
 - Detail movie on sigle page
 - Search movie with autocomplete

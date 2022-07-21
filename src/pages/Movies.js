@@ -30,12 +30,14 @@ export default function Movies() {
   );
 
   useEffect(() => {
-    setHasMore(movies.length > 0);
-  }, []);
+    setHasMore(movies?.length > 0);
+  }, [movies]);
 
   useEffect(() => {
     dispatch(getMovies(filter, page));
-  }, [filter]);
+  }, [dispatch, filter, page]);
+
+  console.log(movies);
 
   return (
     <div className="movies">
@@ -51,25 +53,19 @@ export default function Movies() {
         </div>
       </div>
 
-      {loading ? (
-        <Loading />
-      ) : (
-        <div className="wrapper">
-          {movies?.map((movie, idx) => {
-            if (movies.length === idx + 1) {
-              return (
-                <CardMovie
-                  key={movie.imdbID}
-                  movie={movie}
-                  last={lastMovieRef}
-                />
-              );
-            } else {
-              return <CardMovie key={movie.imdbID} movie={movie} />;
-            }
-          })}
-        </div>
-      )}
+      <div className="wrapper">
+        {movies?.map((movie, idx) => {
+          if (movies.length === idx + 1) {
+            return (
+              <CardMovie key={idx} movie={movie} last={lastMovieRef} />
+            );
+          } else {
+            return <CardMovie key={idx} movie={movie} />;
+          }
+        })}
+      </div>
+
+      {loading && <Loading />}
     </div>
   );
 }

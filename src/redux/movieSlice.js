@@ -21,6 +21,11 @@ const movieSlice = createSlice({
       state.movies = action.payload;
       state.loading = false;
     },
+    setMoviesMore: (state, action) => {
+      // state.movies = [...state.movies, action.payload];
+      action.payload.map(e => state.movies.push(e));
+      state.loading = false;
+    },
     setMovie: (state, action) => {
       state.movie = action.payload;
       state.loading = false;
@@ -38,6 +43,7 @@ const movieSlice = createSlice({
 
 export const {
   setLoading,
+  setMoviesMore,
   setMovies,
   setMovie,
   setSearch,
@@ -60,7 +66,11 @@ export const getLoading = () => (dispatch) => {
 export const getMovies = (filter, page = 1) => async (dispatch) => {
   dispatch(getLoading());
   const data = await getMovieByKey(filter, page);
-  dispatch(setMovies(data));
+  if (page > 1) {
+    dispatch(setMoviesMore(data));
+  } else {
+    dispatch(setMovies(data));
+  }
 };
 
 export const getMovie = (id) => async (dispatch) => {

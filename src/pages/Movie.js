@@ -27,29 +27,41 @@ export default function Movie() {
             <p>{movie.Plot}</p>
 
             <table className="wrap">
-              <tr>
-                <td>Genre</td> <td>: {movie.Genre}</td>
-              </tr>
-              <tr>
-                <td>Actors</td> <td>: {movie.Actors}</td>
-              </tr>
-              <tr>
-                <td>Directors</td> <td>: {movie.Director}</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td>Genre</td>
+                  <td>:&nbsp;{movie.Genre}</td>
+                </tr>
+                <tr>
+                  <td>Actors</td>
+                  <td>:&nbsp;{movie.Actors}</td>
+                </tr>
+                <tr>
+                  <td>Directors</td>
+                  <td>:&nbsp;{movie.Director}</td>
+                </tr>
+              </tbody>
             </table>
+
             <table className="wrap">
-              <tr>
-                <td>Duration</td> <td>: {movie.Runtime}</td>
-              </tr>
-              <tr>
-                <td>Rating</td> <td>: {movie.imdbRating}</td>
-              </tr>
-              <tr>
-                <td>Country</td> <td>: {movie.Country}</td>
-              </tr>
-              <tr>
-                <td>Release Date</td> <td>: {movie.Released}</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td>Duration</td>
+                  <td>:&nbsp;{movie.Runtime}</td>
+                </tr>
+                <tr>
+                  <td>Rating</td>
+                  <td>:&nbsp;{movie.imdbRating}</td>
+                </tr>
+                <tr>
+                  <td>Country</td>
+                  <td>:&nbsp;{movie.Country}</td>
+                </tr>
+                <tr>
+                  <td>Release Date</td>
+                  <td>:&nbsp;{movie.Released}</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>

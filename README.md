@@ -13,6 +13,7 @@
 - Popup Poster preview
 - Detail movie on sigle page
 - Search movie with autocomplete
+- Test render using jest
 
 
 ### Technology Stack
@@ -21,6 +22,7 @@
 - redux
 - axios
 - sass
+- jest
 - react-icons
 
 
